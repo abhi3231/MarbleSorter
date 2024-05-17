@@ -27,7 +27,9 @@ task main()
 	int pos4 = -110; //metal servo position
 
 	turnFlashlightOn(flashlight, 150); //turns the flashlight on
-
+	
+	untilBump(bumpSwitch) //wait until the bump switch is pressed to start the program
+	
 	while(true){
 
 		bool isLight = false; //declaration for plastic marble boolean 
