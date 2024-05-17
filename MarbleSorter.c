@@ -12,7 +12,6 @@ void openSort(); //funcion declaration for light sensor door
 
 task main()
 {
-
 	//line threshold
 	int lineThresh = 1800; //constant threshold for line follower. If its under this value, it is a wood marble.
 
@@ -42,24 +41,15 @@ task main()
 
 		wait(2); //wait to allow vex parts to get new values
 
-		if(SensorValue(lineFollower) < lineThresh){ //if the line follower value is less than the constant, it is a wood marble
-			isWood = true; //sets the wood boolean to true if the condition is met
-		}
-		else if(SensorValue(lightSensor) < lightThresholdLow){ //else, if the light sensor value is less than the low constant, it is a plastic marble
-			isLight = true; //sets the plastic marble boolean to true
-		}
-		else if(SensorValue(lightSensor) < lightThresholdHigh){ // if light sensor value is less than the high constant and greater than the low constant, it is a colored marble
-			isMedium = true; //sets the colored marble boolean to true
-		}
 
-		if(isWood){
-			setServo(servo, pos1); // if the wood boolean is true, sets the servo to constant pos1
+		if(SensorValue(lineFollower) < lineThresh){ //if the line follower value is less than the constant, it is a wood marble
+			setServo(servo, pos1); // set the servo to constant pos1
 		}
-		else if(isLight){
-			setServo(servo, pos2); // if the isLight boolean is true, sets the servo to constant pos2
+		else if(SensorValue(lightSensor) < lightThresholdLow){//else, if the light sensor value is less than the low constant, it is a plastic marble
+			setServo(servo, pos2); // sets the servo to constant pos2
 		}
-		else if(isMedium){
-			setServo(servo, pos3); // if the isMedium boolean is true, sets the servo to constant pos3
+		else if(SensorValue(lightSensor) < lightThresholdHigh){  //if light sensor value is less than the high constant and greater than the low constant, it is a colored marble
+			setServo(servo, pos3); // sets the servo to constant pos3
 		}
 		else{
 			setServo(servo, pos4); // otherwise, its a metal marble and sets the servo to constant pos4
