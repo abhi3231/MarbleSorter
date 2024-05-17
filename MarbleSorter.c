@@ -74,7 +74,7 @@ void open(){
 }
 
 void openSort(){
-	setServo(sortMotor, -127); // sets the servo to position -127 to move the marble back and give it momentum to roll into the cuo
+	setServo(sortMotor, -127); // sets the servo to position -127 to move the marble back and give it momentum to roll into the cup
 	wait(1); // allow the marble to come back forward
 	setServo(sortMotor, 25); //close the door to stop the next marble
 }
