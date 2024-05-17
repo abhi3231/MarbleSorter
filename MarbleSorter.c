@@ -45,10 +45,10 @@ task main()
 		if(SensorValue(lineFollower) < lineThresh){ //if the line follower value is less than the constant, it is a wood marble
 			isWood = true; //sets the wood boolean to true if the condition is met
 		}
-		if(SensorValue(lightSensor) < lightThresholdLow){ //if the light sensor value is less than the low constant, it is a plastic marble
+		else if(SensorValue(lightSensor) < lightThresholdLow){ //else, if the light sensor value is less than the low constant, it is a plastic marble
 			isLight = true; //sets the plastic marble boolean to true
 		}
-		else if(SensorValue(lightSensor) < lightThresholdHigh){ // if  light sensor value is less than the high constant and greater than the low constant, it is a colored marble
+		else if(SensorValue(lightSensor) < lightThresholdHigh){ // if light sensor value is less than the high constant and greater than the low constant, it is a colored marble
 			isMedium = true; //sets the colored marble boolean to true
 		}
 
